@@ -163,24 +163,33 @@ function addColor(time, element, color) {
     }
   });
 }
+// ajax-http
 
-const xhr = new XMLHttpRequest();
-const result = document.querySelector(".result");
+const btn2 = document.querySelector(".btn2");
+btn2.addEventListener("click", function () {
+  getData();
+});
 
-// open the file
-xhr.open("GET", "./api.txt");
-xhr.onreadystatechange = function () {
-  console.log(xhr);
-  if (xhr.readyState === 4 || xhr.status === 200) {
-    const text = document.createElement("p");
-    text.textContent = xhr.responseText;
-    result.appendChild(text);
-  } else {
-    console.log({
-      status: xhr.status,
-      text: xhr.responseText,
-    });
-  }
-};
+function getData() {
+  const xhr = new XMLHttpRequest();
+  const result = document.querySelector(".result");
 
-xhr.send();
+  // open the file
+  xhr.open("GET", "./api.txt");
+  xhr.onreadystatechange = function () {
+    console.log(xhr);
+    if (xhr.readyState === 4 || xhr.status === 200) {
+      const text = document.createElement("p");
+      text.textContent = xhr.responseText;
+      result.appendChild(text);
+    } else {
+      console.log({
+        status: xhr.status,
+        text: xhr.responseText,
+        state: xhr.readyState,
+      });
+    }
+  };
+
+  xhr.send();
+}
