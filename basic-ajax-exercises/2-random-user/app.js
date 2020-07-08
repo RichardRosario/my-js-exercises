@@ -11,5 +11,6 @@ const showUser = async () => {
   displayUser(person);
 };
 
+// initialize content at dom load
 window.addEventListener("DOMContentLoaded", showUser);
 btn.addEventListener("click", showUser);
