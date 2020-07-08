@@ -7,9 +7,8 @@ const btn = getElement(".btn");
 const showUser = async () => {
   // get user from api
   const person = await getUser();
-  displayUser(person);
-
   // display user
+  displayUser(person);
 };
 
 window.addEventListener("DOMContentLoaded", showUser);
