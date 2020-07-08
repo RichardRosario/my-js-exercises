@@ -18,7 +18,7 @@ function displayData({ value: joke }) {
   content.textContent = `" ${joke} "`;
   // shake image
   img.classList.add("shake-img");
-  const random = Math.random() * 1000;
+  const random = Math.random() * 1500;
   setTimeout(() => {
     img.classList.remove("shake-img");
   }, random);
