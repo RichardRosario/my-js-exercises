@@ -158,6 +158,23 @@ for (let x = 0; x < listItems.length; x++) {
   listItems[x].addEventListener("click", myList);
 }
 
+input.addEventListener("keypress", function (event) {
+  if (event.keyCode === 13) {
+    makeNew();
+  }
+});
+// creating new element from input
+function makeNew() {
+  let li = document.createElement("li");
+  li.addEventListener("click", myList);
+  let textValue = input.value;
+  input.value = "";
+  let tempNode = document.createTextNode(textValue);
+  li.appendChild(tempNode);
+  console.log(li);
+  list.appendChild(li);
+}
+
 function myList() {
   let temp = this.classList.toggle("red");
   if (temp) {
