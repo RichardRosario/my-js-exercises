@@ -136,7 +136,15 @@
 // }
 
 //== vs ===
-let r = 8;
-const r1 = "8";
-r == "8" ? console.log("true") : console.log("false"); //true
-r === "8" ? console.log("true") : console.log("false"); //false
+// let r = 8;
+// const r1 = "8";
+// r == r1 ? console.log("true") : console.log("false"); //true
+// r === r1 ? console.log("true") : console.log("false"); //false
+
+// use spread to get an array instead of nodelist
+const heading = [...document.getElementsByTagName("h1")];
+console.log(heading);
+
+heading.forEach((item) => {
+  item.style.color = "blue";
+});
