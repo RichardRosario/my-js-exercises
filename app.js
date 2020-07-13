@@ -142,9 +142,32 @@
 // r === r1 ? console.log("true") : console.log("false"); //false
 
 // use spread to get an array instead of nodelist
-const heading = [...document.getElementsByTagName("h1")];
-console.log(heading);
+// const heading = [...document.getElementsByTagName("h1")];
+// console.log(heading);
 
-heading.forEach((item) => {
-  item.style.color = "blue";
-});
+// heading.forEach((item) => {
+//   item.style.color = "blue";
+// });
+
+// challenge 4
+const input = document.querySelector('input[name="newItem"]');
+const list = document.querySelector("ul");
+const listItems = document.querySelectorAll("li");
+
+for (let x = 0; x < listItems.length; x++) {
+  listItems[x].addEventListener("click", myList);
+}
+
+function myList() {
+  let temp = this.classList.toggle("red");
+  if (temp) {
+    let span = document.createElement("span");
+    span.textContent = "X";
+    span.addEventListener("click", function () {
+      this.parentElement.remove();
+    });
+    this.appendChild(span);
+  } else {
+    this.getElementsByTagName("span")[0].remove();
+  }
+}
