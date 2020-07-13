@@ -188,3 +188,27 @@ function myList() {
     this.getElementsByTagName("span")[0].remove();
   }
 }
+// event bubbling
+const outputEl = document.querySelector(".result");
+const elems = document.querySelectorAll("div");
+
+for (let i = 0; i < elems.length; i++) {
+  let el = elems[i];
+  el.style.border = "1px solid blue";
+  el.style.color = "red";
+  el.style.padding = "20px";
+  el.style.width = "100px";
+  el.value = i + 1;
+  el.addEventListener("click", capture, true);
+  el.addEventListener("click", bubble, false);
+}
+
+function output(msg) {
+  outputEl.innerHTML += `${msg}`;
+}
+function bubble() {
+  output("bubble:" + this.value);
+}
+function capture() {
+  output("capture:" + this.value);
+}
