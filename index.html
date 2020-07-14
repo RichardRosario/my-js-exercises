@@ -19,6 +19,26 @@
       color: red;
       text-decoration: line-through;
     }
+    .draggable {
+      /* width: 90%; */
+      height: 50px;
+      text-align: center;
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      border: 1px solid green;
+      margin: 10px;
+    }
+
+    .dropzone {
+      width: 60vw;
+      height: 200px;
+      background: blueviolet;
+      margin: 10px auto;
+      padding: 10px;
+      display: grid;
+      justify-content: center;
+    }
   </style>
   <body>
     <section>
@@ -67,6 +87,35 @@
     </div>
     <!-- timer -->
     <button class="btn">click me</button>
+    <section>
+      <!-- drag and drop -->
+      <div class="dropzone">
+        <div
+          class="draggable"
+          draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"
+        >
+          Drag this One
+        </div>
+        <div
+          class="draggable"
+          draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"
+        >
+          Drag this two
+        </div>
+        <div
+          class="draggable"
+          draggable="true"
+          ondragstart="event.dataTransfer.setData('text/plain',null)"
+        >
+          Drag this three
+        </div>
+      </div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+    </section>
 
     <script src="./app.js"></script>
   </body>
