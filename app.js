@@ -212,17 +212,11 @@ function bubble() {
 function capture() {
   output("capture:" + this.value);
 }
-document.getElementById("oneway").addEventListener("click", (e) => {
-  document.querySelector("#return").disabled = true;
-});
-document.getElementById("oneway").addEventListener("click", (e) => {
-  document.querySelector("#return").disabled = false;
-});
 
-document.getElementById("oneway").addEventListener("click", (e) => {
-  if (checked) {
-    document.querySelector("#return").disabled = true;
-  } else {
-    document.querySelector("#return").disabled = false;
-  }
+// checked and toggle checked input
+const check = document.getElementById("oneway");
+const disableToggle = document.getElementById("return");
+
+check.addEventListener("click", function () {
+  disableToggle.toggleAttribute("disabled");
 });
