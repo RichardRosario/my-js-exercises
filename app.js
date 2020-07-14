@@ -244,3 +244,29 @@ function step() {
 }
 
 window.requestAnimationFrame(step);
+//fetch
+const url = "https://randomuser.me/api";
+const btn = document.querySelector(".btn");
+const ele = document.createElement("input");
+const cont = document.querySelector(".result");
+ele.setAttribute("type", "number");
+ele.setAttribute("value", 5);
+document.body.appendChild(ele);
+btn.addEventListener("click", getUsers);
+
+function getUsers() {
+  let temp = url + "?results=" + ele.value;
+  fetch(temp)
+    .then(function (res) {
+      return res.json();
+    })
+    .then((data) => {
+      let html;
+      for (let i = 0; i < data.results.length; i++) {
+        console.log(data.results[i].name.first);
+        html +=
+          data.results[i].name.first + " " + data.results[i].name.last + "<br>";
+        cont.innerHTML = html;
+      }
+    });
+}
