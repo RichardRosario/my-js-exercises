@@ -136,7 +136,7 @@ console.log(text);
 // }
 
 // == vs ===
-let r = 8;
+const r = 8;
 const r1 = "8";
 r == r1 ? console.log("true") : console.log("false"); //true
 r === r1 ? console.log("true") : console.log("false"); //false
@@ -212,3 +212,17 @@ function bubble() {
 function capture() {
   output("capture:" + this.value);
 }
+document.getElementById("oneway").addEventListener("click", (e) => {
+  document.querySelector("#return").disabled = true;
+});
+document.getElementById("oneway").addEventListener("click", (e) => {
+  document.querySelector("#return").disabled = false;
+});
+
+document.getElementById("oneway").addEventListener("click", (e) => {
+  if (checked) {
+    document.querySelector("#return").disabled = true;
+  } else {
+    document.querySelector("#return").disabled = false;
+  }
+});
