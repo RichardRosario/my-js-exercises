@@ -112,10 +112,8 @@ console.log(person1);
 console.log(newPerson);
 // spread operator dom element
 
-const headings = document.querySelectorAll("h2");
+const headings = document.querySelectorAll(".list-item");
 const result = document.querySelector(".result");
-
-console.log(headings);
 
 const text = [...headings]
   .map((item) => `<div>${item.textContent}</div>`)
@@ -220,3 +218,29 @@ const disableToggle = document.getElementById("return");
 check.addEventListener("click", function () {
   disableToggle.toggleAttribute("disabled");
 });
+// timers
+const intervalID = window.setInterval(myCallback, 500, "interval");
+const timeOutID = window.setTimeout(myCallback, 500, "setTimeout");
+
+function myCallback(msg) {
+  console.log(msg);
+}
+
+function stopInterval() {
+  clearInterval(intervalID);
+}
+
+let x = 0;
+const el = document.querySelector(".timer");
+el.style.width = "100px";
+el.style.height = "100px";
+el.style.backgroundColor = "red";
+function step() {
+  x++;
+  el.style.transform = "translateX(" + x + "px)";
+  if (x < 450) {
+    window.requestAnimationFrame(step);
+  }
+}
+
+window.requestAnimationFrame(step);
